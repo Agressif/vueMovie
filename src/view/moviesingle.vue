@@ -16,6 +16,7 @@
         <p>类型: {{movie.genres.join(' / ')}}</p>
         <p>制片国家/地区: {{movie.countries.join('')}}</p>
         <p>又名: {{movie.aka.join(' / ')}}</p>
+        <p>评分: {{movie.rating.average}}</p>
         <p>想看人数: {{movie.wish_count}}</p>
         <p>看过人数: {{movie.collect_count}}</p>
         <p>简介: {{movie.summary}}</p>
@@ -26,7 +27,7 @@
     <div class="ui doubling cards">
       <div class="ui card"  v-for="cast in casts" :key="cast.id" style="max-width:170px">
       <div class="ui small image" style="margin:10px">
-        <img :src="cast.avatars.large">
+        <img :src="cast.avatars.large" style="height:215px">
       </div>
       <div class="extra"><p>{{cast.name}}</p></div>
       </div>
@@ -38,7 +39,7 @@
 
 <script>
   import axios from 'axios';
-  import router from '@/router/index';
+  // import router from '@/router/index';
 
   export default {
     data() {
@@ -63,7 +64,7 @@
         });
       },
       goBack() {
-        router.go(-1);
+        this.$router.go(-1);
       },
     },
   };

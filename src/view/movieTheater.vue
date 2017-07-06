@@ -12,7 +12,7 @@
       </div>
       <div class="extra">
         <div v-if="subject.rating.average>0" class="ui rating" :data-rating="Math.ceil(subject.rating.average/2)" data-max-rating="5"></div>
-        <div class="content" v-else>暂无评分</div>
+        <div v-else class="content">暂无评分</div>
       </div>
     </div>
   </div>

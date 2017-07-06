@@ -12,7 +12,7 @@
       <button class="ui circular github icon button">
         <i class="github icon large"></i>
       </button>
-      https://github.com/Agressif
+        <a href="https://github.com/Agressif" target="_blank">https://github.com/Agressif</a>
       </div>
       <div>
       <button class="ui circular google plus icon button">

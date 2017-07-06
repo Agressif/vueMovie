@@ -16,7 +16,6 @@
   <div class="ui tab segment" data-tab="second">
     <moviesoon></moviesoon>
   </div>
-  <copyright></copyright>
 </div>
 
 </template>
@@ -27,14 +26,8 @@
   import movietheater from '@/view/movieTheater';
   import moviesoon from '@/view/moviesoon';
   import moviesearch from '@/view/moviesearch';
-  import copyright from '@/view/copyright';
 
   export default {
-    data() {
-      return {
-        content: '',
-      };
-    },
     methods: {
       show() {
         $('.ui.modal').modal('show');
@@ -43,7 +36,7 @@
     mounted() {
       $('.ui .item').tab();
     },
-    components: { About, movietheater, moviesoon, moviesearch, copyright },
+    components: { About, movietheater, moviesoon, moviesearch },
   };
 </script>
 

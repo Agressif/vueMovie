@@ -1,7 +1,7 @@
 <template>
   <div class="ui fluid search">
     <div class="ui right icon input">
-    <input class="prompt" type="text" placeholder="Search Movie name">
+    <input class="prompt" type="text" placeholder="请输入电影名称...">
     <i class="search icon"></i>
     </div>
   </div>
