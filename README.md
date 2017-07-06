@@ -19,8 +19,11 @@ npm run dev
 ```
 
 参考:
-[Semantic-UI] (https://semantic-ui.com/)
-[Vue-router](https://router.vuejs.org/zh-cn/)
-[Vue-cli] (https://github.com/vuejs/vue-cli)
+[Semantic-UI](https://semantic-ui.com/)  
+
+[Vue-router](https://router.vuejs.org/zh-cn/)  
+
+[Vue-cli](https://github.com/vuejs/vue-cli)  
+
 [入门webpack,看这篇就够了](http://www.jianshu.com/p/42e11515c10f)
 
