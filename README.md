@@ -1,30 +1,26 @@
-# my-project
+# Vue2.x 豆瓣Web App
 
-> A Vue.js project
+> A project based on Vue.js 
 
 ## Build Setup
 
 ``` bash
+
+git clone https://github.com/Agressif/Vue2-douban.git
+
+cd Vue2-douban
+
 # install dependencies
 npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+参考:
+[Semantic-UI] (https://semantic-ui.com/)
+[Vue-router](https://router.vuejs.org/zh-cn/)
+[Vue-cli] (https://github.com/vuejs/vue-cli)
+[入门webpack,看这篇就够了](http://www.jianshu.com/p/42e11515c10f)
+
