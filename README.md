@@ -4,6 +4,11 @@
 
 ## 预览
 
+**PC端和移动端**
+
+![PC](https://github.com/Agressif/Vue2-douban/blob/master/static/PC.png)
+
+![Phone](https://github.com/Agressif/Vue2-douban/blob/master/static/Phone.png)
 
 ## 安装
 ``` bash
