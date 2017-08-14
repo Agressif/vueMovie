@@ -1,8 +1,9 @@
 <template>
   <div class="ui link stackable four cards container">
+    <loading v-if="subjects.length==0"></loading>
     <div class="ui card" :key="subject.id" v-for="subject in subjects">
       <a class="image" :href="'/movie/detail/' + subject.id">
-        <img :src="subject.images.large"></img>
+        <img v-lazy="subject.images.large"></img>
       </a>
       <div v-if="subject.rating.average > 0" class="content">
         {{ subject.title }} ({{ subject.rating.average }})
@@ -18,6 +19,7 @@
 <script>
   import axios from 'axios';
   import star from '@/components/star';
+  import loading from '@/components/loading';
 
   export default {
     data() {
@@ -35,7 +37,7 @@
         this.data = [];
       });
     },
-    components: { star },
+    components: { star, loading },
   };
 </script>
 
