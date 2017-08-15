@@ -28,6 +28,13 @@
         errorMsg: '',
       };
     },
+    methods: {
+      getData(fn) {
+        const script = document.createElement('script');
+        script.src = `http://api.github.com/users/Agressif?callback=${fn}`;
+        document.body.append(script);
+      },
+    },
     mounted() {
       const api = '/api/movie/in_theaters';
       axios.get(api).then((response) => {

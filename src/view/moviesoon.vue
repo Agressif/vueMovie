@@ -26,6 +26,7 @@
       return {
         subjects: [],
         errorMsg: '',
+        movieData: {},
       };
     },
     mounted() {
