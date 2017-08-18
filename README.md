@@ -4,6 +4,8 @@
 
 ## 预览
 
+**[Demo](https://agressif.github.io/vueMovie/dist/index.html#/movie/home)**
+
 **PC端和移动端**
 
 ![PC](https://github.com/Agressif/Vue2-douban/blob/master/static/PC.png)
