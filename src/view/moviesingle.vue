@@ -57,7 +57,7 @@
         loading: true,
       };
     },
-    created() {
+    mounted() {
       this.setPage();
     },
     methods: {
