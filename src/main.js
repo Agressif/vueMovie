@@ -9,7 +9,7 @@ Vue.use(semantic);
 Vue.use(VueLazyLoad, {
   error: '/static/error.jpg',
   loading: '/static/load.gif',
-  attempt: 3,
+  attempt: 1,
 });
 Vue.config.productionTip = false;
 /* eslint-disable no-new */

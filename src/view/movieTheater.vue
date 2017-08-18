@@ -1,10 +1,10 @@
 <template>
-  <div class="ui link stackable four cards container">
-    <loading v-if="subjects.length==0"></loading>
+  <div id="theater" class="ui link stackable four cards container">
+    <loading v-if="loading"></loading>
     <div v-else class="ui card" :key="subject.id" v-for="subject in subjects">
-      <a class="image" :href="'/movie/detail/' + subject.id">
+      <router-link class="image" :to="{ name:'moviesingle', params: {id: subject.id}}">
         <img v-lazy="subject.images.large"></img>
-      </a>
+      </router-link>
       <div v-if="subject.rating.average > 0" class="content">
         {{ subject.title }} ({{ subject.rating.average }})
       </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import getData from '@/common/getData';
   import star from '@/components/star';
   import loading from '@/components/loading';
 
@@ -25,24 +25,21 @@
     data() {
       return {
         subjects: [],
-        errorMsg: '',
+        loading: true,
+        position: '',
       };
     },
-    methods: {
-      getData(fn) {
-        const script = document.createElement('script');
-        script.src = `http://api.github.com/users/Agressif?callback=${fn}`;
-        document.body.append(script);
-      },
+    created() {
+      this.getMovieTheater();
     },
-    mounted() {
-      const api = '/api/movie/in_theaters';
-      axios.get(api).then((response) => {
-        this.subjects = response.data.subjects;
-      }).catch(() => {
-        this.errorMsg = 'Movie does not exist!';
-        this.data = [];
-      });
+    methods: {
+      getMovieTheater() {
+        const url = 'movie/in_theaters';
+        getData(url).then((res) => {
+          this.subjects = res.subjects;
+          this.loading = false;
+        });
+      },
     },
     components: { star, loading },
   };

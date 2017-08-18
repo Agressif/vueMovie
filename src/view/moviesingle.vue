@@ -1,5 +1,6 @@
 <template>
 <div class="ui container">
+  <loading v-if="loading"></loading>
   <div class="ui items">
     <div class="item">
         <div class="ui secondary pointing menu">
@@ -13,10 +14,10 @@
           {{movie.title}} / {{movie.original_title}} ({{movie.year}})
         </div>
         <p>导演: {{directors.name}}</p>
-        <p>类型: {{movie.genres.join(' / ')}}</p>
-        <p>制片国家/地区: {{movie.countries.join('')}}</p>
-        <p>又名: {{movie.aka.join(' / ')}}</p>
-        <p>评分: {{movie.rating.average}}</p>
+        <p>类型: {{type}}</p>
+        <p>制片国家/地区: {{countries}}</p>
+        <p>又名: {{aka}}</p>
+        <p>评分: {{star}}</p>
         <p>想看人数: {{movie.wish_count}}</p>
         <p>看过人数: {{movie.collect_count}}</p>
         <p>简介: {{movie.summary}}</p>
@@ -38,8 +39,8 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  // import router from '@/router/index';
+  import getData from '@/common/getData';
+  import loading from '@/components/loading';
 
   export default {
     data() {
@@ -49,24 +50,37 @@
         images: '',
         directors: '',
         casts: '',
+        aka: '',
+        type: '',
+        countries: '',
+        star: '',
+        loading: true,
       };
     },
-    mounted() {
+    created() {
       this.setPage();
     },
     methods: {
       setPage() {
-        axios.get(`/api/movie/subject/${this.id}`).then((res) => {
-          this.movie = res.data;
-          this.images = res.data.images;
-          this.directors = res.data.directors[0];
-          this.casts = res.data.casts;
+        const url = `movie/subject/${this.id}`;
+        getData(url).then((res) => {
+          document.body.scrollTop = 0;
+          this.movie = res;
+          this.images = res.images;
+          this.directors = res.directors[0];
+          this.casts = res.casts;
+          this.aka = res.aka.join(' / ');
+          this.countries = res.countries.join(' / ');
+          this.star = res.rating.average;
+          this.type = res.genres.join(' / ');
+          this.loading = false;
         });
       },
       goBack() {
         this.$router.go(-1);
       },
     },
+    components: { loading },
   };
 </script>
 

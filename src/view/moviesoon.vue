@@ -1,10 +1,10 @@
 <template>
-  <div class="ui link stackable four cards container">
-    <loading v-if="subjects.length==0"></loading>
+  <div id="coming" class="ui link stackable four cards container">
+    <loading v-if="loading"></loading>
     <div class="ui card" :key="subject.id" v-for="subject in subjects">
-      <a class="image" :href="'/movie/detail/' + subject.id">
+      <router-link class="image" :to="{ name:'moviesingle', params: {id: subject.id}}">
         <img v-lazy="subject.images.large"></img>
-      </a>
+      </router-link>
       <div v-if="subject.rating.average > 0" class="content">
         {{ subject.title }} ({{ subject.rating.average }})
       </div>
@@ -17,26 +17,30 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import getData from '@/common/getData';
   import star from '@/components/star';
   import loading from '@/components/loading';
 
   export default {
+    name: 'moviesoon',
     data() {
       return {
         subjects: [],
-        errorMsg: '',
-        movieData: {},
+        loading: true,
+        location: '',
       };
     },
     mounted() {
-      const api = '/api/movie/coming_soon';
-      axios.get(api).then((response) => {
-        this.subjects = response.data.subjects;
-      }).catch(() => {
-        this.errorMsg = 'Movie does not exist!';
-        this.data = [];
-      });
+      this.getMovieComing();
+    },
+    methods: {
+      getMovieComing() {
+        const url = 'movie/coming_soon';
+        getData(url).then((res) => {
+          this.subjects = res.subjects;
+          this.loading = false;
+        });
+      },
     },
     components: { star, loading },
   };
