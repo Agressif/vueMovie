@@ -1,7 +1,7 @@
 <template>
 <div class="ui container">
   <loading v-if="loading"></loading>
-  <div class="ui items">
+  <div v-else class="ui items">
     <div class="item">
         <div class="ui secondary pointing menu">
           <a class="active item" @click="goBack()"><i class="angle left icon"></i>返回</a>
@@ -57,7 +57,7 @@
         loading: true,
       };
     },
-    mounted() {
+    created() {
       this.setPage();
     },
     methods: {
