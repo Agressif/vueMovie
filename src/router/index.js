@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import movietag from '@/view/movieTag';
-import moviesingle from '@/view/movieSingle';
+import movietag from '@/view/movietag';
+import moviesingle from '@/view/moviesingle';
 import star from '@/components/star';
 
 Vue.use(Router);

@@ -24,8 +24,8 @@
   import $ from 'jquery';
   import About from '@/view/about';
   import movietheater from '@/view/movieTheater';
-  import moviesoon from '@/view/movieSoon';
-  import moviesearch from '@/view/movieSearch';
+  import moviesoon from '@/view/moviesoon';
+  import moviesearch from '@/view/moviesearch';
 
   export default {
     methods: {
