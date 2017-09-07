@@ -15,7 +15,7 @@
 ## 安装
 ``` bash
 
-git clone https://github.com/Agressif/Vue2-douban.git
+git clone https://github.com/Agressif/vueMovie.git
 
 cd Vue2-douban
 
