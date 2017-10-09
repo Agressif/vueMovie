@@ -1,29 +1,27 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import movietag from '@/view/movietag';
+import movietheater from '@/view/movietheater';
+import moviesoon from '@/view/moviesoon';
 import moviesingle from '@/view/moviesingle';
-import star from '@/components/star';
 
 Vue.use(Router);
 
 export default new Router({
+  mode: 'hash',
   routes: [{
     path: '/',
-    name: 'home',
-    redirect: '/movie/home',
-    component: movietag,
+    name: 'movietheater',
+    alias: '/movie/theater',
+    component: movietheater,
     meta: { keepAlive: true },
   }, {
-    path: '/movie/home',
-    name: 'movietag',
-    component: movietag,
+    path: '/movie/comingsoon',
+    name: 'moviesoon',
+    component: moviesoon,
     meta: { keepAlive: true },
   }, {
     path: '/movie/detail/:id',
     name: 'moviesingle',
     component: moviesingle,
-  }, {
-    path: '/star',
-    component: star,
   }],
 });

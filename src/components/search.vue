@@ -41,11 +41,12 @@ export default {
         'title',
         'url',
       ],
+      minCharacters: 1,
       searchOnFocus: true,
       selectFirstResult: true,
       searchFullText: true,
       hideDelay: 500,
-      searchDelay: 300,
+      searchDelay: 100,
     });
   },
 };

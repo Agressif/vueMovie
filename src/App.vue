@@ -1,9 +1,23 @@
 <template>
   <div id="app">
-    <keep-alive> 
+  <navigation></navigation>
+    <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive"></router-view> 
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
+<script>
+import navigation from '@/components/navigation';
+
+export default {
+  components: { navigation },
+};
+</script>
+
+<style scoped>
+#app{
+  text-align: center;
+}
+</style>

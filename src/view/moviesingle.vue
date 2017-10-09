@@ -64,7 +64,6 @@
       setPage() {
         const url = `movie/subject/${this.id}`;
         getData(url).then((res) => {
-          document.body.scrollTop = 0;
           this.movie = res;
           this.images = res.images;
           this.directors = res.directors[0];

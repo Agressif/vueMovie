@@ -1,5 +1,5 @@
 <template>
-  <div id="coming" class="ui link stackable four cards container">
+  <div class="ui link stackable four cards container">
     <loading v-if="loading"></loading>
     <div class="ui card" :key="subject.id" v-for="subject in subjects">
       <router-link class="image" :to="{ name:'moviesingle', params: {id: subject.id}}">
@@ -30,8 +30,28 @@
         location: '',
       };
     },
-    mounted() {
+    created() {
       this.getMovieComing();
+    },
+    mounted() {
+      const map = {};
+      window.onhashchange = () => {
+        document.body.scrollTop = 0;
+      };
+      window.onscroll = () => {
+        if (document.body.scrollTop) {
+          map[location.hash] = document.body.scrollTop;
+        } else {
+          let timer = null;
+          timer = setInterval(() => {
+            if (document.body.scrollTop === map[location.hash]) {
+              clearInterval(timer);
+            } else {
+              document.body.scrollTop = map[location.hash];
+            }
+          }, 20);
+        }
+      };
     },
     methods: {
       getMovieComing() {
@@ -49,5 +69,8 @@
 <style scoped>
   img {
     min-height: 400px;
+  }
+  .ui.cards {
+    margin: 0;
   }
 </style>
