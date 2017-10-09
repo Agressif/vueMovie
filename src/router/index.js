@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import movietheater from '@/view/movietheater';
+import movietheater from '@/view/movieTheater';
 import moviesoon from '@/view/moviesoon';
 import moviesingle from '@/view/moviesingle';
 

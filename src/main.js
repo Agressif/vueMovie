@@ -7,6 +7,11 @@ import router from './router';
 
 Vue.use(semantic);
 Vue.use(VueLazyLoad, {
+  // npm run build 时修改路径如下
+  // error: './static/error.jpg',
+  // loading: './static/load.gif',
+
+  // npm run dev 时路径如下
   error: '/static/error.jpg',
   loading: '/static/load.gif',
   attempt: 1,
